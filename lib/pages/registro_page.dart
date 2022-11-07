@@ -3,7 +3,8 @@ import '../models/user.dart';
 import 'login_page.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:async';
+import '../repository/firebase_api.dart';
+
 
 class RegistroPage extends StatefulWidget {
   const RegistroPage({Key? key}) : super(key: key);
@@ -13,6 +14,8 @@ class RegistroPage extends StatefulWidget {
 }
 
 class _RegistroPageState extends State<RegistroPage> {
+
+  final FirebaseApi _firebaseApi = FirebaseApi();
   final _nombre = TextEditingController();
   final _telefono = TextEditingController();
   final _email = TextEditingController();
@@ -184,23 +187,50 @@ class _RegistroPageState extends State<RegistroPage> {
     );
   }
   void _saveUser(User user) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString("user", jsonEncode(user));
+    var result = await _firebaseApi.createUser(user);
+    Navigator.pushReplacement( context, MaterialPageRoute(builder: (context) => const LoginPage()));
+
+  }
+  void _registerUser(User user) async {
+    //SharedPreferences prefs = await SharedPreferences.getInstance();
+    //prefs.setString("user", jsonEncode(user));
+    var result = await _firebaseApi.registerUser(user.email, user.password);
+    String msg = "";
+    if (result == "invalid-email") {
+      msg = "correo electronico invalido";
+      _volverRegistro();
+    } else if (result == "weak-password") {
+      msg = "contraseña debe ser min 6 digitos";
+      _volverRegistro();
+    } else if (result == "email-already-in-use") {
+      msg = "correo ya en uso";
+      _volverRegistro();
+    } else if (result == "network-request-failed") {
+      msg = "sin red de conexion";
+      _volverRegistro();
+    } else
+      msg = "usuario registrado con exito";
+    _showMsg(msg);
+    user.uid = result;
+    _saveUser(user);
   }
 
   void _onGuardarRegistrar() {
     setState(() {
      if (_password.text == _repassword.text){
-     var user =  User(_nombre.text, _telefono.text, _email.text, _password.text);
-     _saveUser(user);
-     Navigator.push(
-         context,
-         MaterialPageRoute(builder: (context) => const LoginPage()));
+     var user =  User("", _nombre.text, _telefono.text, _email.text, _password.text);
+     _registerUser(user);
+
      }
      else {
        _showMsg("Las contraseñas deben ser iguales");
      }
     });
 
+  }
+  void _volverRegistro(){
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const RegistroPage()));
   }
 }

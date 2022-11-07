@@ -1,17 +1,19 @@
 class User{
+  var _uid;
   var _nombre;
   var _telefono;
   var _email;
   var _password;
 
 
-  User(this._nombre, this._telefono, this._email, this._password);
+  User(this._uid, this._nombre, this._telefono, this._email, this._password);
 
 
   User.Empty();
 
   User.fromJson(Map<String, dynamic> json)
-  : _nombre = json['nombre'],
+  : _uid = json['uid'],
+        _nombre = json['nombre'],
     _telefono = json['telefono'],
     _email= json['email'],
     _password = json['password'];
@@ -19,11 +21,18 @@ class User{
 
 
   Map<String, dynamic> toJson()=>{
+    'uid': _uid,
     'nombre': _nombre,
     'telefono': _telefono,
     'email': _email,
     'password': _password
   };
+
+  get uid => _uid;
+
+  set uid(value) {
+    _uid = value;
+  }
 
   get password => _password;
 
