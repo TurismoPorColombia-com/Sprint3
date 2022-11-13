@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>941160629882-q51ijme3mf04ve8247h8rjpau568lqr5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.941160629882-q51ijme3mf04ve8247h8rjpau568lqr5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBn--IdiiSktq9DclvHEeIW63xFIB8AvyM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>941160629882</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.fondoFoto</string>
+	<key>PROJECT_ID</key>
+	<string>turismocolombia-2a7da</string>
+	<key>STORAGE_BUCKET</key>
+	<string>turismocolombia-2a7da.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:941160629882:ios:634921e810109bdf6c1dc3</string>
+</dict>
+</plist>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "941160629882",
+    "project_id": "turismocolombia-2a7da",
+    "storage_bucket": "turismocolombia-2a7da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941160629882:android:7c280c52b05bfbe36c1dc3",
+        "android_client_info": {
+          "package_name": "com.example.fondo_foto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941160629882-j41rlp5ti9kkehpr796hql0cftv05kn9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_9abRV8qJ2GwfRi5L5iUVOV1Qj5LNjCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941160629882-j41rlp5ti9kkehpr796hql0cftv05kn9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
