@@ -206,7 +206,7 @@ class _RegistroPageState extends State<RegistroPage> {
       msg = "correo ya en uso";
       _volverRegistro();
     } else if (result == "network-request-failed") {
-      msg = "sin red de conexion";
+      msg = "sin red de coneccion";
       _volverRegistro();
     } else
       msg = "usuario registrado con exito";
